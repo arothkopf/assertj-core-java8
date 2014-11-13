@@ -79,7 +79,7 @@ import org.assertj.core.groups.Tuple;
  * @author Alan Rothkopf
  *
  */
-public interface CoreAssertions {
+public interface WithAssertions {
 
   /**
    * Delegate call to {@link org.assertj.core.api.Assertions#offset(Float)}
@@ -369,10 +369,10 @@ public interface CoreAssertions {
   }
 
   /**
-   * Delegate call to {@link org.assertj.core.api.Assertions#assertThat(int)}
+   * Delegate call to {@link org.assertj.core8.api.Assertions#assertThat(int)}
    */
-  default public AbstractIntegerAssert<?> assertThat(final int actual) {
-	return org.assertj.core.api.Assertions.assertThat(actual);
+  default public IntegerAssert assertThat(final int actual) {
+	return Assertions.assertThat(actual);
   }
 
   /**

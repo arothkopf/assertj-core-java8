@@ -21,7 +21,7 @@ import org.junit.Test;
  * @author arothkopf
  *
  */
-public class WithAssertions_assertThat_with_int implements WithAssertions {
+public class WithAssertions_assertThat_with_int_Test implements WithAssertions {
 
   /**
    * @throws java.lang.Exception

@@ -12,6 +12,7 @@
  */
 package org.assertj.core8.api;
 
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 import org.assertj.core.api.Condition;
@@ -22,10 +23,30 @@ import org.assertj.core.api.Condition;
  *
  */
 public class Lambdas {
+
+  /**
+   * Conversion from lambda to Condition for non-primitive types
+   * @param lambda
+   * @return Condition which tests the predicate
+   */
   public static <T> Condition<T> toCondition(final Predicate<T> lambda) {
 	return new Condition<T>() {
 	  @Override
 	  public boolean matches(final T value) {
+		return lambda.test(value);
+	  }
+	};
+  }
+
+  /**
+   * Conversion from lambda to Condition for int
+   * @param lambda
+   * @return Condition which tests the predicate
+   */
+  public static Condition<Integer> toCondition(final IntPredicate lambda) {
+	return new Condition<Integer>() {
+	  @Override
+	  public boolean matches(final Integer value) {
 		return lambda.test(value);
 	  }
 	};
